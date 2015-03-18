@@ -24,7 +24,7 @@ public class wifiInfo extends CordovaPlugin
     { try 
       { WifiManager wifiManager = (WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo(); 
-        Log.d("wifiInfo Plugin", wifiInfo);
+
         level = WifiManager.calculateSignalLevel(wifiInfo.getRssi(), numberOfLevels);
         Log.d("wifiInfo Plugin", "Level:" + level);
         ssid = wifiInfo.getSSID().replaceAll("\"","");
