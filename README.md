@@ -1,2 +1,3 @@
 # wifiInfo
-get connection info and level on android device
+wifiInfo function on Android devices to get connected SSID and connection level
+

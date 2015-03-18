@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin 
+		xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="at.casephonegap.wifiInfo"
+    version="1.0.0">
+
+	<name>wifiInfo</name>
+	<description>get connected SSID and connection level on android device</description>
+	<license>MIT</license>
+
+	<engines>
+		<engine name="cordova" version=">=3.0.0" />
+	</engines>    
+
+	<js-module src="www/wifiInfo.js" name="wifiInfo">
+		<clobbers target="wifiInfo" />
+	</js-module>
+    
+	<platform name="android">
+		<config-file target="config.xml" parent="/*">
+			<feature name="wifiInfo">   
+				<param name="android-package" value="at.casephonegap.wifiInfo.wifiInfo"/>
+			</feature>
+		</config-file>
+		
+		<source-file src="src/android/at/casephonegap/wifiInfo/wifiInfo.java" target-dir="src/at/casephonegap/wifiInfo"/>
+	</platform>
+    
+</plugin>   
+    
