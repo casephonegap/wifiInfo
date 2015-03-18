@@ -32,12 +32,12 @@ public class wifiInfo extends CordovaPlugin
         obj.put("ssid", ssid);
         //Log.i("wifiInfo Plugin", "Level: " + level); 
         //Log.i("wifiInfo Plugin", "SSID: " + ssid);
-        callbackContext.success(obj);
+        callback.success(obj);
         return true; 
       }
       catch (Exception e) 
       { Log.d("wifiInfo Plugin", "Error: " + e.getMessage()); 
-        callbackContext.error("Fehler in wifiInfo");
+        callback.error("Fehler in wifiInfo");
         return false;
       }
     }
