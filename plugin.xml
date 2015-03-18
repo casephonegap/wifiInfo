@@ -23,6 +23,10 @@
 				<param name="android-package" value="at.casephonegap.wifiInfo.wifiInfo"/>
 			</feature>
 		</config-file>
+
+	        <config-file target="AndroidManifest.xml" parent="/*">
+        	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        	</config-file>
 		
 		<source-file src="src/android/at/casephonegap/wifiInfo/wifiInfo.java" target-dir="src/at/casephonegap/wifiInfo"/>
 	</platform>
