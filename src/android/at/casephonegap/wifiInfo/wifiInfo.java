@@ -18,18 +18,21 @@ public class wifiInfo extends CordovaPlugin
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callback) throws JSONException 
   { // grab the correct methods
+    numberOfLevels = 5;
     Log.d("wifiInfo Plugin", action);
     if (action.equalsIgnoreCase("getConnectionInfo")) 
-    { numberOfLevels = 5;
-      try 
+    { try 
       { WifiManager wifiManager = (WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo(); 
-
+        Log.d("wifiInfo Plugin", wifiInfo);
         level = WifiManager.calculateSignalLevel(wifiInfo.getRssi(), numberOfLevels);
+        Log.d("wifiInfo Plugin", 'Level:' + level);
         ssid = wifiInfo.getSSID().replaceAll("\"","");
+        Log.d("wifiInfo Plugin", 'SSID: ' + ssid);
         JSONObject obj = new JSONObject();
         obj.put("level", level);
         obj.put("ssid", ssid);
+        Log.d("wifiInfo Plugin", 'Obj: ' + obj);
         //Log.i("wifiInfo Plugin", "Level: " + level); 
         //Log.i("wifiInfo Plugin", "SSID: " + ssid);
         callback.success(obj);
