@@ -1,7 +1,7 @@
 function wifiInfo() { };
 
 /*  wifiInfo*/
-wifiInfo.prototype.now = function () 
+wifiInfo.prototype.getConnectionInfo = function () 
 { //console.log('wifiInfo aufgerufen');
   cordova.exec(null, null, 'wifiInfo', 'getConnectionInfo', []);
 };
