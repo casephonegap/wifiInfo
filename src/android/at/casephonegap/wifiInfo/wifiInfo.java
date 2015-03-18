@@ -26,13 +26,13 @@ public class wifiInfo extends CordovaPlugin
         WifiInfo wifiInfo = wifiManager.getConnectionInfo(); 
         Log.d("wifiInfo Plugin", wifiInfo);
         level = WifiManager.calculateSignalLevel(wifiInfo.getRssi(), numberOfLevels);
-        Log.d("wifiInfo Plugin", 'Level:' + level);
+        Log.d("wifiInfo Plugin", "Level:" + level);
         ssid = wifiInfo.getSSID().replaceAll("\"","");
-        Log.d("wifiInfo Plugin", 'SSID: ' + ssid);
+        Log.d("wifiInfo Plugin", "SSID: " + ssid);
         JSONObject obj = new JSONObject();
         obj.put("level", level);
         obj.put("ssid", ssid);
-        Log.d("wifiInfo Plugin", 'Obj: ' + obj);
+        Log.d("wifiInfo Plugin", "Obj: " + obj);
         //Log.i("wifiInfo Plugin", "Level: " + level); 
         //Log.i("wifiInfo Plugin", "SSID: " + ssid);
         callback.success(obj);
