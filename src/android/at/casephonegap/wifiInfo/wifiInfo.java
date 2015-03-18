@@ -1,30 +1,3 @@
-	public boolean execute(String action, JSONArray args,CallbackContext callbackContext) throws JSONException 
-	{	numberOfLevels=5;
-	
-		try {
-			WifiManager wifiManager = (WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
-			WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-			
-			level = WifiManager.calculateSignalLevel(wifiInfo.getRssi(), numberOfLevels);
-			ssid = wifiInfo.getSSID().replaceAll("\"","");
-						
-			JSONObject obj = new JSONObject();
-			obj.put("level", level);
-			obj.put("ssid", ssid);
-			
-			Log.i("ConnectionInfo Plugin", "Level: " + level);
-			Log.i("ConnectionInfo Plugin", "SSID: " + ssid);
-			
-			callbackContext.success(obj);
-			return true;
-		} catch (Exception e) {
-			Log.d("ConnectionInfo Plugin", "Error: " + e.getMessage());
-			callbackContext.error("Fehler in Connection Info");
-			return false;
-		}
-    }
-}
-
 package at.casephonegap.wifiInfo;
 
 import org.apache.cordova.api.CallbackContext;
